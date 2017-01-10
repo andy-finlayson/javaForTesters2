@@ -7,5 +7,5 @@ import org.junit.Test;
  */
 public class inheritanceTest {
     @Test
-    public void
+    public void blahBLah(){}
 }
