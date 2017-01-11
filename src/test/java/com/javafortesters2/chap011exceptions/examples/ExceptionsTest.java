@@ -1,5 +1,6 @@
 package com.javafortesters2.chap011exceptions.examples;
 
+import com.javafortesters2.domainentities.InvalidPassword;
 import com.javafortesters2.domainentities.User;
 import org.junit.Test;
 
@@ -29,10 +30,10 @@ public class ExceptionsTest {
         assertEquals("18",ageAsString);
     }
     @Test
-    public void illegalArgumentException(){
+    public void illegalArgumentException()throws InvalidPassword {
         try {
             User bob = new User("bob","123456");
-        }catch(IllegalArgumentException e){
+        }catch(InvalidPassword e){
         System.out.println("Caught IllegalArgumentException");
         }finally {
             User bob = new User("bob","1234567");

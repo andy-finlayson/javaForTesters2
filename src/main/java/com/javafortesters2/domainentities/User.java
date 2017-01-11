@@ -6,12 +6,12 @@ package com.javafortesters2.domainentities;
 public class User {
     private final String username;
     private String password;
-    /*public User(){
+    public User(){
         username = "username";
         password = "password";
-    }*/
+    }
 
-    public User(String username,String password){
+    public User(String username,String password)throws InvalidPassword{
         this.username = username;
         setPassword(password);
     }
@@ -24,9 +24,9 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password)throws InvalidPassword{
         if (password.length()<7){
-            throw new IllegalArgumentException("Password must be longer than 7 characters");
+            throw new InvalidPassword("Password must be longer than 7 characters");
         }
         this.password = password;
     }

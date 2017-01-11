@@ -1,5 +1,6 @@
 package com.javafortesters2.chap010collections.examples;
 
+import com.javafortesters2.domainentities.InvalidPassword;
 import com.javafortesters2.domainentities.User;
 import org.junit.Test;
 
@@ -125,19 +126,19 @@ public class CollectionsTest {
         assertTrue(workdays.isEmpty());
     }
     @Test
-    public void createAndManipulateACollectionOfUsers(){
+    public void createAndManipulateACollectionOfUsers()throws InvalidPassword{
         Collection<User> Users = new HashSet<>();
         assertEquals(0, Users.size());
         assertTrue(Users.isEmpty());
-        User andy = new User("andy1","pass1");
-        User bob = new User("bob1","pass1");
+        User andy = new User("andy1","password1");
+        User bob = new User("bob1","password1");
         Users.add(andy);
         Users.add(bob);
         assertEquals(2, Users.size());
         assertFalse(Users.isEmpty());
         Collection<User> Users2 = new HashSet<>();
-        User charlie = new User("charlie1","pass1");
-        User dave = new User("dave1","pass1");
+        User charlie = new User("charlie1","password1");
+        User dave = new User("dave1","password1");
         Users2.add(charlie);
         Users2.add(dave);
         assertEquals(2,Users2.size());
@@ -154,10 +155,10 @@ public class CollectionsTest {
         assertEquals(0,Users.size());
     }
     @Test
-    public void createAndManipulateAListOfUsers(){
+    public void createAndManipulateAListOfUsers()throws InvalidPassword{
         List<User> Users = new ArrayList<>();
-        User andy = new User("andy1","pass1");
-        User bob = new User("bob1","pass1");
+        User andy = new User("andy1","password1");
+        User bob = new User("bob1","password1");
         Users.add(bob);
         assertEquals(1,Users.size());
         Users.add(0,andy);
@@ -168,19 +169,19 @@ public class CollectionsTest {
         assertEquals(0,Users.indexOf(bob));
     }
     @Test
-    public void createAndManipulateASetOfUsers(){
+    public void createAndManipulateASetOfUsers()throws InvalidPassword{
         Set<User> Users = new HashSet<>();
-        User andy = new User("andy1","pass1");
+        User andy = new User("andy1","password1");
         Users.add(andy);
         assertEquals(1,Users.size());
         Users.add(andy);
         assertEquals(1,Users.size());
     }
     @Test
-    public void createAndManipulateAMapOfUsers(){
+    public void createAndManipulateAMapOfUsers()throws InvalidPassword{
         Map<String,User> Users = new HashMap<>();
-        User andy = new User("andy1","pass1");
-        User bob = new User("bob1","pass1");
+        User andy = new User("andy1","password1");
+        User bob = new User("bob1","password1");
         Users.put("user1",bob);
         Users.put("user1",andy);
         assertFalse(Users.containsValue(bob));
