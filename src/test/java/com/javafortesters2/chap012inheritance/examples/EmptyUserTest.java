@@ -8,10 +8,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by andfin on 10/01/2017.
  */
-public class EmptyUser extends User{
+public class EmptyUserTest extends User{
     @Test
     public void blahBLah(){
-        EmptyUser andy = new EmptyUser();
+        EmptyUserTest andy = new EmptyUserTest();
         assertEquals("username",andy.getUsername());
         assertEquals("password",andy.getPassword());
     }

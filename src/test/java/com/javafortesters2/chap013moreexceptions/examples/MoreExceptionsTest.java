@@ -11,7 +11,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by andfin on 11/01/2017.
  */
-public class MoreExceptions {
+public class MoreExceptionsTest {
     @Test(expected = InvalidPassword.class)
         public void constructUserWithException()throws InvalidPassword{
             User aUser = new User("username","p");
