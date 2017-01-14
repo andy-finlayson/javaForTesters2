@@ -13,6 +13,6 @@ public class EmptyUserTest extends User{
     public void blahBLah(){
         EmptyUserTest andy = new EmptyUserTest();
         assertEquals("username",andy.getUsername());
-        assertEquals("password",andy.getPassword());
+        assertEquals("Passw0rd",andy.getPassword());
     }
 }

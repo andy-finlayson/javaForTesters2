@@ -8,7 +8,7 @@ public class User {
     private String password;
     public User(){
         username = "username";
-        password = "password";
+        password = "Passw0rd";
     }
 
     public User(String username,String password)throws InvalidPassword{
@@ -28,6 +28,15 @@ public class User {
         if (password.length()<7){
             throw new InvalidPassword("Password must be longer than 7 characters");
         }
+        String mustIncludeADigit = ".*[0-9]+.*";
+        if(!password.matches(mustIncludeADigit)){
+            throw new InvalidPassword("Password must contain a Digit");
+        }
+        String mustIncludeAUpperCaseLetter = ".*[A-Z]+.*";
+        if(!password.matches(mustIncludeAUpperCaseLetter)){
+            throw new InvalidPassword("Password must contain an Uppercase Letter");
+        }
         this.password = password;
     }
+
 }

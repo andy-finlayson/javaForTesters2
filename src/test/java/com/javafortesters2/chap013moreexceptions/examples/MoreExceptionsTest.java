@@ -20,7 +20,7 @@ public class MoreExceptionsTest {
         public void constructDefaultUserWIthNoException(){
             User aUser = new User();
             assertEquals("username",aUser.getUsername());
-            assertEquals("password",aUser.getPassword());
+            assertEquals("Passw0rd",aUser.getPassword());
 }
     @Test
     public void shortPassword(){

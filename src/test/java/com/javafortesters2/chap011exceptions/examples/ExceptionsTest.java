@@ -36,7 +36,7 @@ public class ExceptionsTest {
         }catch(InvalidPassword e){
         System.out.println("Caught IllegalArgumentException");
         }finally {
-            User bob = new User("bob","1234567");
+            User bob = new User("bob","Passw0rd");
             assertEquals("bob", bob.getUsername());
         }
 

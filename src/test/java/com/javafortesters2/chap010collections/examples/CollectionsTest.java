@@ -130,15 +130,15 @@ public class CollectionsTest {
         Collection<User> Users = new HashSet<>();
         assertEquals(0, Users.size());
         assertTrue(Users.isEmpty());
-        User andy = new User("andy1","password1");
-        User bob = new User("bob1","password1");
+        User andy = new User("andy1","Passw0rd");
+        User bob = new User("bob1","Passw0rd");
         Users.add(andy);
         Users.add(bob);
         assertEquals(2, Users.size());
         assertFalse(Users.isEmpty());
         Collection<User> Users2 = new HashSet<>();
-        User charlie = new User("charlie1","password1");
-        User dave = new User("dave1","password1");
+        User charlie = new User("charlie1","Passw0rd");
+        User dave = new User("dave1","Passw0rd");
         Users2.add(charlie);
         Users2.add(dave);
         assertEquals(2,Users2.size());
@@ -157,8 +157,8 @@ public class CollectionsTest {
     @Test
     public void createAndManipulateAListOfUsers()throws InvalidPassword{
         List<User> Users = new ArrayList<>();
-        User andy = new User("andy1","password1");
-        User bob = new User("bob1","password1");
+        User andy = new User("andy1","Passw0rd");
+        User bob = new User("bob1","Passw0rd");
         Users.add(bob);
         assertEquals(1,Users.size());
         Users.add(0,andy);
@@ -171,7 +171,7 @@ public class CollectionsTest {
     @Test
     public void createAndManipulateASetOfUsers()throws InvalidPassword{
         Set<User> Users = new HashSet<>();
-        User andy = new User("andy1","password1");
+        User andy = new User("andy1","Passw0rd");
         Users.add(andy);
         assertEquals(1,Users.size());
         Users.add(andy);
@@ -180,8 +180,8 @@ public class CollectionsTest {
     @Test
     public void createAndManipulateAMapOfUsers()throws InvalidPassword{
         Map<String,User> Users = new HashMap<>();
-        User andy = new User("andy1","password1");
-        User bob = new User("bob1","password1");
+        User andy = new User("andy1","Passw0rd");
+        User bob = new User("bob1","Passw0rd");
         Users.put("user1",bob);
         Users.put("user1",andy);
         assertFalse(Users.containsValue(bob));

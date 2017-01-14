@@ -14,9 +14,9 @@ public class JunitExporedTest {
         @Test
     public void useAllOfTheAsserts()throws InvalidPassword{
             User[] users = new User[3];
-            users[0] = new User("user1","password1");
-            users[1] = new User("user2","password2");
-            users[2] = new User("user3","password3");
+            users[0] = new User("user1","Password1");
+            users[1] = new User("user2","Password2");
+            users[2] = new User("user3","Password3");
 
             assertTrue(true);
             assertFalse(false);
@@ -29,9 +29,9 @@ public class JunitExporedTest {
         @Test
         public void useAssertThat()throws InvalidPassword{
                 User[] users = new User[3];
-                users[0] = new User("user1","password1");
-                users[1] = new User("user2","password2");
-                users[2] = new User("user3","password3");
+                users[0] = new User("user1","Password1");
+                users[1] = new User("user2","Password2");
+                users[2] = new User("user3","Password3");
 
                 assertThat(1,is(1));
                 assertThat(1,equalTo(1));

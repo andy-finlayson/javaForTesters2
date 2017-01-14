@@ -12,16 +12,16 @@ import static org.junit.Assert.assertEquals;
 public class UserTest {
     @Test
     public void canCreateUser()throws InvalidPassword{
-        User user = new User("username","password");
+        User user = new User("username","Passw0rd");
         assertEquals("users username is 'username'","username",user.getUsername());
-        assertEquals("users password is 'password'","password",user.getPassword());
+        assertEquals("users password is 'password'","Passw0rd",user.getPassword());
     }
     @Test
     public void canSetPassword()throws InvalidPassword{
-        User user = new User("username","password");
-        assertEquals("users password is 'password'","password",user.getPassword());
-        user.setPassword("password0");
-        assertEquals("users new password is 'password0'","password0",user.getPassword());
+        User user = new User("username","Passw0rd");
+        assertEquals("users password is 'password'","Passw0rd",user.getPassword());
+        user.setPassword("Passw0rd1");
+        assertEquals("users new password is 'Passw0rd1'","Passw0rd1",user.getPassword());
     }
 
 }
