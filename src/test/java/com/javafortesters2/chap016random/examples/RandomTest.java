@@ -72,5 +72,30 @@ public class RandomTest {
         System.out.println(sd1+" / "+sd2+" / "+sd3+" / "+sd4);
         assertTrue(sd1<sd2 && sd2<sd3 && sd3<sd4);
     }
+    @Test
+    public void seeded(){
+        Random generate = new Random(1234567L);
+        int seededNextInt = generate.nextInt();
+        assertThat(seededNextInt,is(1042961893));
+        assertThat(generate.nextLong(),is(-6749250865724111202L));
+        assertThat(generate.nextDouble(),is(0.44762832574617084));
+        assertThat(generate.nextGaussian(), is(-0.11571220872310763));
+        assertThat(generate.nextFloat(), is(0.33144182F));
+        assertThat(generate.nextBoolean(), is(false));
+    }
+    @Test
+    public void randomString(){
+        String validValues = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+        Random generate = new Random();
+        StringBuilder randomString = new StringBuilder();
+        for(int i =0;i<1000;i++){
+            int randomIndex = generate.nextInt(validValues.length());
+            randomString.append(validValues.charAt(randomIndex));
+        }
+        System.out.println(randomString);
+        assertThat(randomString.length(),is(1000));
+        assertThat(randomString.toString().matches("[A-Z ]+"),is(true));
+
+    }
 
 }
