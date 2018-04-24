@@ -1,5 +1,7 @@
 package com.javafortesters2.chap011exceptions.examples;
 
+import com.javafortesters2.domainentities.InvalidEmail;
+import com.javafortesters2.domainentities.InvalidMobileNumber;
 import com.javafortesters2.domainentities.InvalidPassword;
 import com.javafortesters2.domainentities.User;
 import org.junit.Test;
@@ -40,5 +42,34 @@ public class ExceptionsTest {
             assertEquals("bob", bob.getUsername());
         }
 
+    }
+    @Test
+    public void invalidMobileNumberException()throws Throwable{
+        try {
+            User user = new User("username","Password1","andy","finlayson","123456789","test@test.com");
+        }catch (InvalidMobileNumber e){
+            assertEquals(e.getMessage(),"Mobile number should be 10 digits");
+        }
+
+        try {
+            User user = new User("username","Password1","andy","finlayson","12345678910","test@test.com");
+        }catch (InvalidMobileNumber e){
+            assertEquals(e.getMessage(),"Mobile number should be 10 digits");
+        }
+
+        try {
+            User user = new User("username","Password1","andy","finlayson","123456789A","test@test.com");
+        }catch (InvalidMobileNumber e){
+            assertEquals(e.getMessage(),"Mobile number should not contain characters");
+        }
+    }
+
+    @Test
+    public void invalidEmailAddressException()throws Throwable{
+        try {
+            User user = new User("username","Password1","andy","finlayson","1234567890","test.com");
+        }catch (InvalidEmail e){
+            assertEquals(e.getMessage(),"That doesn't look like an email address to me");
+        }
     }
 }

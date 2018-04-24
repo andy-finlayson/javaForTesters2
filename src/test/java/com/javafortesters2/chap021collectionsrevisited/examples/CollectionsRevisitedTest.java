@@ -1,13 +1,15 @@
 package com.javafortesters2.chap021collectionsrevisited.examples;
 
+import com.javafortesters2.domainentities.DupeUserComparator;
+import com.javafortesters2.domainentities.InvalidPassword;
 import com.javafortesters2.domainentities.User;
-import com.javafortesters2.domainentities.UserComparator;
 import org.junit.Test;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -62,8 +64,38 @@ public class CollectionsRevisitedTest {
 
     }
     @Test
-    public void comparator(){
-        SortedSet<User> userSortedList = new TreeSet<User>(new UserComparator);
+    public void comparator()throws InvalidPassword{
+        User bob = new User("Bob","pa55Word1");//12
+        User sun = new User("sunn","Tzu12345");//12
+        User tiny = new User("TinyTim","Hello123");//15
+        User mrBeer = new User("Stafford","Syst3m123");//18
+        User rich = new User("Richie", "R1ch1eR1chR1ch");//20
+
+        SortedSet<User> userSortedList = new TreeSet<User>(new DupeUserComparator());
+        userSortedList.add(bob);
+        userSortedList.add(tiny);
+        userSortedList.add(rich);
+        userSortedList.add(sun);
+        userSortedList.add(mrBeer);
+        User[] users = new User[userSortedList.size()];
+        userSortedList.toArray(users);
+        assertEquals(bob.getUsername(),users[0].getUsername());
+        assertEquals(sun.getUsername(),users[1].getUsername());
+        assertEquals(tiny.getUsername(),users[2].getUsername());
+        assertEquals(mrBeer.getUsername(),users[3].getUsername());
+        assertEquals(rich.getUsername(),users[4].getUsername());
+    }
+    @Test
+    public void dupeComparator()throws InvalidPassword{
+        User bob = new User("Bob","pa55Word1");//12
+        User sun = new User("Bob","Tzu12345");//11
+        SortedSet<User> userSortedList = new TreeSet<User>(new DupeUserComparator());
+        userSortedList.add(bob);
+        userSortedList.add(sun);
+        User[] users = new User[userSortedList.size()];
+        assertThat(users.length, is(1));
+        assertThat(bob.getPassword(),is("pa55Word1"));
+
     }
 
 
